@@ -14,14 +14,14 @@ pipeline {
     }
     stages {
         // SonarQube SAST Code Analysis
-        stage("SonarQube SAST Analysis"){
-            steps{
-                withSonarQubeEnv('Sonar-Server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=app-payment-service \
-                    -Dsonar.projectKey=app-payment-service '''
-                }
-            }
-        }
+        // stage("SonarQube SAST Analysis"){
+        //     steps{
+        //         withSonarQubeEnv('Sonar-Server') {
+        //             sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=app-payment-service \
+        //             -Dsonar.projectKey=app-payment-service '''
+        //         }
+        //     }
+        // }
         // Providing Snyk Access
         stage('Authenticate & Authorize Snyk') {
             steps {

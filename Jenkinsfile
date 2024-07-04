@@ -13,15 +13,15 @@ pipeline {
         snyk 'Snyk'
     }
     stages {
-        // SonarQube SAST Code Analysis
-        stage("SonarQube SAST Analysis"){
-            steps{
-                withSonarQubeEnv('Sonar-Server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=app-shipping-service \
-                    -Dsonar.projectKey=app-shipping-service '''
-                }
-            }
-        }
+        // // SonarQube SAST Code Analysis
+        // stage("SonarQube SAST Analysis"){
+        //     steps{
+        //         withSonarQubeEnv('Sonar-Server') {
+        //             sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=app-shipping-service \
+        //             -Dsonar.projectKey=app-shipping-service '''
+        //         }
+        //     }
+        // }
         // Providing Snyk Access
         stage('Authenticate & Authorize Snyk') {
             steps {

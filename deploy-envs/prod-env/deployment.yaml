@@ -16,7 +16,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: awanmbandi/checkoutservice:latest
+          image: adkab99/checkoutservice:latest
           ports:
           - containerPort: 5050
           readinessProbe:

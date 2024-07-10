@@ -20,7 +20,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'dev-sec-ops-cicd-pipeline-project-one', url: 'https://github.com/adkab99/realworld-microservice-project.git'
+                git branch: 'dev-sec-ops-cicd-pipeline-project-one', url: 'https://https://github.com/adkab99/realworld-microservice-project.git'
             }
         }
         stage('Install Dependencies') {

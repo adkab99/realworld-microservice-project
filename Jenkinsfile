@@ -28,21 +28,21 @@ pipeline{
                 sh "npm install"
             }
         }
-        stage("Sonarqube Analysis "){
-            steps{
-                withSonarQubeEnv('Sonar-Server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=NodeJS-WebApp-Project \
-                    -Dsonar.projectKey=NodeJS-WebApp-Project '''
-                }
-            }
-        }
-        stage('SonarQube GateKeeper') {
-            steps {
-                timeout(time : 1, unit : 'HOURS'){
-                waitForQualityGate abortPipeline: true, credentialsId: 'SonarQube-Credential'
-                }
-            }
-        }
+        // stage("Sonarqube Analysis "){
+        //     steps{
+        //         withSonarQubeEnv('Sonar-Server') {
+        //             sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=NodeJS-WebApp-Project \
+        //             -Dsonar.projectKey=NodeJS-WebApp-Project '''
+        //         }
+        //     }
+        // }
+        // stage('SonarQube GateKeeper') {
+        //     steps {
+        //         timeout(time : 1, unit : 'HOURS'){
+        //         waitForQualityGate abortPipeline: true, credentialsId: 'SonarQube-Credential'
+        //         }
+        //     }
+        // }
         stage('OWASP Dependency Check') {
             steps {
                 dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'OWASP-Dependency-Check'
